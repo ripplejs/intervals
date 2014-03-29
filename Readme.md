@@ -20,18 +20,18 @@ Adds a `setInterval` method:
 var View = ripple(template)
   .use(intervals);
 
-View.on('mount', function(){
+View.mounted(function(){
   this.setInterval(this.tick, 1000);
 });
 
-View.on('created', function(){
-  this.state.set({
+View.created(function(){
+  this.set({
     seconds: 0
   });
 });
 
 View.prototype.tick = function() {
-  this.state.seconds += 1;
+  this.set('seconds', this.get('seconds') + 1);
 };
 ```
 
