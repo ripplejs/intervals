@@ -1,10 +1,10 @@
 module.exports = function(View) {
 
-  View.on('before mount', function(){
+  View.mounted(function(){
     this.intervals = [];
   });
 
-  View.on('unmount', function(){
+  View.unmounted(function(){
     this.intervals.map(clearInterval);
   });
 
