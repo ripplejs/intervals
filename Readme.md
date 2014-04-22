@@ -1,4 +1,3 @@
-
 # intervals
 
   Plugin for cleaner setInterval. It will automatically
@@ -21,13 +20,8 @@ var View = ripple(template)
   .use(intervals);
 
 View.mounted(function(){
-  this.setInterval(this.tick, 1000);
-});
-
-View.created(function(){
-  this.set({
-    seconds: 0
-  });
+  this.set('seconds', 0);
+  this.setInterval(this.tick.bind(this), 1000);
 });
 
 View.prototype.tick = function() {
