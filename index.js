@@ -1,6 +1,6 @@
 module.exports = function(View) {
 
-  View.mounted(function(){
+  View.created(function(){
     this.intervals = [];
   });
 
@@ -9,7 +9,7 @@ module.exports = function(View) {
   });
 
   View.prototype.setInterval = function(){
-    this.intervals.push(setInterval.call(null, arguments));
+    this.intervals.push(setInterval.apply(null, arguments));
   };
 
 };
